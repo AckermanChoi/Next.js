@@ -1,22 +1,24 @@
-const libros = [
-  { id: 1, titulo: "El Principito", precio: "$10" },
-  { id: 2, titulo: "Cuentos para soñar", precio: "$12" },
-  { id: 3, titulo: "Aventuras en el bosque", precio: "$9" },
-];
+import BookCard from "@/components/BookCard";
+import PageTitle from "@/components/PageTitle";
+import { libros } from "@/data/libros";
+
+export const metadata = {
+  title: "Catálogo",
+};
 
 export default function CatalogoPage() {
   return (
     <section className="card">
-      <h2>Catálogo</h2>
-      <p>Aquí están algunos libros de ejemplo.</p>
+      <PageTitle
+        title="Catálogo"
+        subtitle="Cada libro tiene su propia página de detalle"
+      />
 
-      <ul>
+      <div className="book-grid">
         {libros.map((libro) => (
-          <li key={libro.id}>
-            {libro.titulo} - {libro.precio}
-          </li>
+          <BookCard key={libro.id} libro={libro} />
         ))}
-      </ul>
+      </div>
     </section>
   );
 }

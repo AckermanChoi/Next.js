@@ -1,11 +1,27 @@
+import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
+import { formatPrice, getLibroDelDia } from "@/data/libros";
+
+export const metadata = {
+  title: "Libro del día",
+};
+
 export default function LibroDelDiaPage() {
+  const libro = getLibroDelDia();
+
   return (
     <section className="card">
-      <h2>Libro del día</h2>
-      <p>
-        Hoy recomendamos <strong>"El Viaje de Luna"</strong>.
-      </p>
-      <p>Es una historia corta sobre amistad, imaginación y valentía.</p>
+      <PageTitle
+        title="Libro del día"
+        subtitle="Recomendación destacada de la librería"
+      />
+
+      <p><strong>Título:</strong> {libro.titulo}</p>
+      <p><strong>Autor:</strong> {libro.autor}</p>
+      <p><strong>Precio:</strong> {formatPrice(libro.precio)}</p>
+      <p>{libro.descripcion}</p>
+
+      <Link href={`/libros/${libro.id}`}>Ver detalle completo</Link>
     </section>
   );
 }

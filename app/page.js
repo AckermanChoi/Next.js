@@ -1,3 +1,10 @@
+import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
+
+export const metadata = {
+  title: "Inicio",
+};
+
 export default function Home() {
   const pasos = [
     "Entrar a la tienda",
@@ -8,11 +15,10 @@ export default function Home() {
 
   return (
     <section className="card">
-      <h2>Bienvenidos</h2>
-      <p>
-        Esta es una tienda virtual de libros. Cada página muestra una parte del
-        sitio de forma fácil.
-      </p>
+      <PageTitle
+        title="Bienvenidos"
+        subtitle="Proyecto simple para aprender las bases de Next.js"
+      />
 
       <h3>¿Cómo funciona una tienda?</h3>
       <ol>
@@ -20,6 +26,10 @@ export default function Home() {
           <li key={paso}>{paso}</li>
         ))}
       </ol>
+
+      <p>
+        ¿Listo para empezar? <Link href="/catalogo">Ir al catálogo</Link>
+      </p>
     </section>
   );
 }
