@@ -16,8 +16,8 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body>
         <header className="header">
-          <h1>Librería Pequeña</h1>
-          <p>Una tienda virtual simple para aprender Next.js</p>
+          <h1>Librería IRG</h1>
+          <p>Una tienda virtual simple para practicar Next.js</p>
           <ThemeToggle />
           <Navbar />
         </header>
